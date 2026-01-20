@@ -37,7 +37,8 @@ export function OpinionsContextProvider({ children }) {
     setOpinions((prevOpinions) => [savedOpinion, ...prevOpinions]);
   }
 
-  function upvoteOpinion(id) {
+  async function upvoteOpinion(id) {
+    await fetch('http://localhost:3000/opinions/' + id + '/upvote');
     setOpinions((prevOpinions) => {
       return prevOpinions.map((opinion) => {
         if (opinion.id === id) {
