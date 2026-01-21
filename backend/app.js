@@ -68,7 +68,6 @@ app.post('/opinions', async (req, res) => {
   const { userName, title, body } = req.body;
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
-
   if (!userName || !title || !body) {
     return res
       .status(400)
